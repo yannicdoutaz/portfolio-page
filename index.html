@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <title>Portfolio von Yannic Doutaz</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h1>Herzlich Willkommen</h1>
-        <p>Mein Name ist Yannic und dies wird meine Portfolio-Seite</p>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio von Yannic Doutaz</title>
+    <meta name="description" content="Portfolio von Yannic Doutaz: Projekte, Skills und Kontakt.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#start">Startseite</a>
+            <a href="#ueber-mich">Über mich</a>
+            <a href="#projekte">Projekte</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="start">
+            <h1>Herzlich Willkommen</h1>
+            <p>Mein Name ist Yannic und dies wird meine Portfolio-Seite.</p>
+        </section>
+
+        <section id="ueber-mich">
+            <h2>Über mich</h2>
+            <p>Technical Support Lead und Student Digital Business &amp; AI an der BFH. Diese Seite entsteht im Modul Web Engineering und wächst über das Semester.</p>
+        </section>
+
+        <section id="projekte">
+            <h2>Projekte</h2>
+            <article class="card">
+                <h3>Projekt 1</h3>
+                <p>Kurzbeschreibung folgt.</p>
+            </article>
+            <article class="card">
+                <h3>Projekt 2</h3>
+                <p>Kurzbeschreibung folgt.</p>
+            </article>
+            <article class="card">
+                <h3>Projekt 3</h3>
+                <p>Kurzbeschreibung folgt.</p>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML / CSS / JavaScript</li>
+                <li>PHP / WordPress</li>
+                <li>Zoho Desk, Sprints, Analytics</li>
+                <li>Google Business Profile</li>
+            </ul>
+        </section>
+
+        <section id="hobbys">
+            <h2>Hobbys</h2>
+            <ul>
+                <li>Fotografieren</li>
+                <li>Squashen</li>
+                <li>Jagd</li>
+                <li>Bungee-Surfen</li>
+                <li>Rennvelo</li>
+            </ul>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <p><a href="https://github.com/doutazyannic-cmd">GitHub</a></p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Senden</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <small>&copy; 2026 Yannic Doutaz. Alle Rechte vorbehalten.</small>
+    </footer>
+</body>
 </html>
-    
