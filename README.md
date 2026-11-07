@@ -2,7 +2,7 @@
 
 Portfolioseite von Yannic Doutaz, Einzelarbeit im Modul EWEB Web Engineering (BFH, HS26).
 
-- Live: https://douty1.github.io/portfolio-page/
+- Live: https://yannicdoutaz.github.io/portfolio-page/
 - Stack: reines HTML, CSS, JavaScript (keine Frameworks), gehostet auf GitHub Pages
 
 ## Struktur
@@ -28,7 +28,7 @@ Versionierung ausgeschlossen. Ins Repo kommen nur Exporte für das Web.
 
 Inhalte und Struktur stehen. Offen sind Responsivität (Media Queries), JavaScript
 (Navigation, Galerie, Formularvalidierung) und die Bilder. Siehe die
-[Issues](https://github.com/douty1/portfolio-page/issues).
+[Issues](https://github.com/yannicdoutaz/portfolio-page/issues).
 
 ## Repository-Historie
 Ursprünglich auf dem privaten Account angelegt, für das Modul EWEB (BFH) auf den Studienaccount verschoben und im November 2026 zurück auf den privaten Account transferiert, damit das Projekt über das Studium hinaus weitergeführt wird. Der Commit-Verlauf ist vollständig erhalten.
