@@ -6,6 +6,7 @@
     <title>Yannic Doutaz · Technik und Gestaltung</title>
     <meta name="description" content="Portfolio von Yannic Doutaz: Teamleiter Technischer Support, Student Digital Business &amp; AI an der BFH, Fotografie und Video.">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <header>
@@ -63,8 +64,13 @@
 
         <section id="projekte">
             <h2>Projekte</h2>
-            <p>Eine Auswahl an Aufträgen aus Fotografie und Video.</p>
+            <p>Eine Auswahl aus Fotografie und Video, Automatisierung und KI sowie dem Studium.</p>
 
+            <!-- Filter und Karten erzeugt js/main.js aus data/projekte.json.
+                 Die zwei Karten unten bleiben stehen, falls das Laden scheitert. -->
+            <div id="projekt-filter" class="filter" hidden></div>
+
+            <div id="projekt-liste" class="projekt-liste">
             <article class="card">
                 <h3><a href="hauptner-coverfoto.html">Coverfoto Herbstkatalog</a></h3>
                 <p class="projekt-meta">Hauptner Jagd · Kundenauftrag · 2022</p>
@@ -78,6 +84,7 @@
                 <p>Ein einstündiger Dankesfilm zur Pensionierung einer langjährigen Person bei Reka, als Überraschung im Kinosaal vor über 100 Gästen gezeigt.</p>
                 <p><a href="reka-abschiedsfilm.html">Projekt ansehen</a></p>
             </article>
+            </div>
         </section>
 
         <section id="kontakt">
