@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-08T16:00:00+01:00",
+  "title": "Design System: Yannic Doutaz · Technik und Gestaltung",
+  "extensions": {
+    "colorMeta": {
+      "akzent": { "role": "primary", "displayName": "Waldgrün", "canonical": "oklch(48.7% 0.067 155)", "tonalRamp": ["oklch(15% 0.028 155)", "oklch(27% 0.040 155)", "oklch(39% 0.051 155)", "oklch(51% 0.063 155)", "oklch(63% 0.059 155)", "oklch(75% 0.047 155)", "oklch(86% 0.037 155)", "oklch(95% 0.028 155)"] },
+      "bg": { "role": "neutral", "displayName": "Papierweiss", "canonical": "oklch(100% 0 0)", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(86% 0 0)", "oklch(95% 0 0)"] },
+      "bg-alt": { "role": "neutral", "displayName": "Passepartout-Grau", "canonical": "oklch(96.7% 0.003 106)", "tonalRamp": ["oklch(15% 0.001 106)", "oklch(27% 0.002 106)", "oklch(39% 0.002 106)", "oklch(51% 0.002 106)", "oklch(63% 0.002 106)", "oklch(75% 0.002 106)", "oklch(86% 0.001 106)", "oklch(95% 0.001 106)"] },
+      "text": { "role": "neutral", "displayName": "Tusche", "canonical": "oklch(22.2% 0.002 107)", "tonalRamp": ["oklch(15% 0.001 107)", "oklch(27% 0.001 107)", "oklch(39% 0.001 107)", "oklch(51% 0.002 107)", "oklch(63% 0.002 107)", "oklch(75% 0.001 107)", "oklch(86% 0.001 107)", "oklch(95% 0.001 107)"] },
+      "text-leise": { "role": "neutral", "displayName": "Bleistiftgrau", "canonical": "oklch(52.6% 0.008 107)", "tonalRamp": ["oklch(15% 0.003 107)", "oklch(27% 0.005 107)", "oklch(39% 0.006 107)", "oklch(51% 0.007 107)", "oklch(63% 0.007 107)", "oklch(75% 0.005 107)", "oklch(86% 0.004 107)", "oklch(95% 0.003 107)"] },
+      "linie": { "role": "neutral", "displayName": "Kartonlinie", "canonical": "oklch(89.3% 0.008 107)", "tonalRamp": ["oklch(15% 0.003 107)", "oklch(27% 0.005 107)", "oklch(39% 0.006 107)", "oklch(51% 0.008 107)", "oklch(63% 0.007 107)", "oklch(75% 0.006 107)", "oklch(86% 0.004 107)", "oklch(95% 0.003 107)"] },
+      "akzent-kontrast": { "role": "neutral", "displayName": "Akzent-Kontrast", "canonical": "oklch(100% 0 0)" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Name im Hero und Titel einer Projekt-Unterseite." },
+      "headline": { "displayName": "Headline", "purpose": "Abschnittstitel; heute Browser-Standard (h2)." },
+      "title": { "displayName": "Title", "purpose": "Kartentitel und Skill-Gruppen; heute Browser-Standard (h3)." },
+      "body": { "displayName": "Body", "purpose": "Fliesstext in der 70ch-Spalte." },
+      "label": { "displayName": "Label", "purpose": "Meta-Zeilen, Kategorie, Tags, Filterknöpfe." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Filterknopf",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Kategorie-Filter über dem Projektraster, ungedrückt.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"false\">Studium</button>",
+      "css": ".ds-filter { padding: 0.5rem 0.75rem; font: inherit; font-size: 0.875rem; color: var(--farbe-text, #1b1b1a); background: var(--farbe-bg, #fff); border: 1px solid var(--farbe-linie, #dcdcd6); border-radius: 4px; cursor: pointer; } .ds-filter:hover { border-color: var(--farbe-akzent, #3f6b4f); } .ds-filter:focus-visible { outline: 2px solid var(--farbe-akzent, #3f6b4f); outline-offset: 2px; }"
+    },
+    {
+      "name": "Filterknopf aktiv",
+      "kind": "chip",
+      "refersTo": "filter-chip-active",
+      "description": "Gewählte Kategorie (aria-pressed=true).",
+      "html": "<button class=\"ds-filter-aktiv\" aria-pressed=\"true\">Alle</button>",
+      "css": ".ds-filter-aktiv { padding: 0.5rem 0.75rem; font: inherit; font-size: 0.875rem; color: #fff; background: var(--farbe-akzent, #3f6b4f); border: 1px solid var(--farbe-akzent, #3f6b4f); border-radius: 4px; cursor: pointer; }"
+    },
+    {
+      "name": "Projektkarte",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Karte im Projektraster: Kategorie, Titel, Meta, Text, Tags.",
+      "html": "<article class=\"ds-card\"><p class=\"ds-card-kat\">Fotografie und Video</p><h3 class=\"ds-card-titel\"><a href=\"#\">Coverfoto Herbstkatalog</a></h3><p class=\"ds-card-meta\">Kundenauftrag · 2022</p><p>Das Titelbild für einen Herbstkatalog, im Morgennebel bei Sonnenaufgang.</p><ul class=\"ds-tags\"><li>Fotografie</li><li>Print</li></ul></article>",
+      "css": ".ds-card { padding: 0.5rem 1.25rem; border: 1px solid var(--farbe-linie, #dcdcd6); border-radius: 4px; background: var(--farbe-bg, #fff); color: var(--farbe-text, #1b1b1a); font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; max-width: 22rem; } .ds-card-kat { margin-bottom: 0; font-size: 0.875rem; color: var(--farbe-akzent, #3f6b4f); } .ds-card-titel { margin-top: 0.25rem; } .ds-card-titel a { color: inherit; } .ds-card-titel a:hover { color: var(--farbe-akzent, #3f6b4f); } .ds-card-meta { font-size: 0.875rem; color: var(--farbe-text-leise, #6b6b66); } .ds-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 0; list-style: none; } .ds-tags li { padding: 0 0.5rem; font-size: 0.875rem; background: var(--farbe-bg-alt, #f4f4f2); border-radius: 4px; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Werkzeug- oder Themen-Stichwort auf der Projektkarte.",
+      "html": "<span class=\"ds-tag\">Zoho Desk</span>",
+      "css": ".ds-tag { display: inline-block; padding: 0 0.5rem; font-size: 0.875rem; line-height: 1.6; background: var(--farbe-bg-alt, #f4f4f2); color: var(--farbe-text, #1b1b1a); border-radius: 4px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Textlinks im Header; heute Browser-Blau, Hover Waldgrün.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Start</a><a href=\"#\">Über mich</a><a href=\"#\">Projekte</a><a href=\"#\">Galerie</a><a href=\"#\">Kontakt</a></nav>",
+      "css": ".ds-nav { padding: 0.75rem 1.25rem; font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; } .ds-nav a { margin-right: 1.25rem; color: #0000ee; } .ds-nav a:hover { color: var(--farbe-akzent, #3f6b4f); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Das Passepartout",
+    "overview": "Die Seite ist der weisse Karton um ein gerahmtes Bild. Sie tritt zurück, damit Fotos und Projekte wirken: viel Weissraum, eine einzige ruhige Schrift, feine Linien statt Flächen. Farbe kommt aus den Bildern, nicht aus der Oberfläche. Die Dichte ist niedrig, alles steht in einer schmalen Lesespalte. Die Haltung ist sachlich und zurückhaltend, eher Werkverzeichnis als Werbeplakat. Stand heute ist das System ein Gerüst: Farb-, Schrift- und Abstandstokens stehen, Projektkarten und Filter sind gestaltet. Navigation, Textlinks, Hero-Aktionen und das Kontaktformular laufen noch mit Browser-Standard. Bilder fehlen noch ganz.",
+    "keyCharacteristics": [
+      "Hell und neutral, warm getöntes Grau statt reinem Grau.",
+      "Ein einziger Akzent (Waldgrün), sparsam für Zustand und Kategorie.",
+      "Flach: Linien und Tonflächen, keine Schatten.",
+      "Systemschrift, Hierarchie nur über Grösse und Gewicht.",
+      "Kleine, gleichmässige Rundung (4px) an allem, was eine Kante hat."
+    ],
+    "rules": [
+      { "name": "The Bild-zuerst Rule", "body": "Die Oberfläche bleibt neutral, damit die Bilder die einzigen Farbflächen sind. Keine farbigen Hintergründe, Verläufe oder Illustrationsfarben.", "section": "colors" },
+      { "name": "The Eine-Stimme Rule", "body": "Waldgrün ist der einzige Akzent. Es zeigt einen Zustand oder eine Zuordnung, nie Dekoration.", "section": "colors" },
+      { "name": "The Gewicht-statt-Schrift Rule", "body": "Hierarchie entsteht über Grösse und Gewicht derselben Schrift, nicht über eine zweite Familie.", "section": "typography" },
+      { "name": "The Linie-statt-Schatten Rule", "body": "Flächen trennen sich durch eine feine Linie oder einen Tonwechsel, nie durch Schatten.", "section": "elevation" }
+    ],
+    "dos": [
+      "**Do** neue Farben nur aus den Tokens in `css/style.css` nehmen (`--farbe-…`).",
+      "**Do** Abstände nur aus der Skala `--abstand-xs` bis `--abstand-xl` setzen.",
+      "**Do** Waldgrün (#3f6b4f) für Zustand und Zuordnung reservieren.",
+      "**Do** Fliesstext auf 65–75ch begrenzen."
+    ],
+    "donts": [
+      "**Don't** Schatten einsetzen; Trennung läuft über 1px Kartonlinie (#dcdcd6) oder Passepartout-Grau (#f4f4f2).",
+      "**Don't** farbige Flächen oder Verläufe in die Oberfläche bringen, solange dieses System gilt.",
+      "**Don't** eine zweite Schriftfamilie oder eine zweite Rundung einführen.",
+      "**Don't** diese Datei als Ziel eines Redesigns behandeln; sie ist die Referenz, von der ein Redesign sich lösen darf."
+    ]
+  }
+}
