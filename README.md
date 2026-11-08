@@ -13,7 +13,8 @@ hauptner-coverfoto.html    Projekt: Coverfoto Herbstkatalog, Hauptner Jagd
 reka-abschiedsfilm.html    Projekt: Abschiedsfilm, Reka
 galerie.html               Fotogalerie
 css/style.css              Design-Tokens, Layout
-js/main.js                 noch leer, JavaScript folgt
+js/main.js                 Projektkarten und Filter aus data/projekte.json
+data/projekte.json         Projektdaten (Titel, Kategorie, Text, Tags, Link)
 assets/img/                web-optimierte Bilder
 ```
 
@@ -22,7 +23,10 @@ Versionierung ausgeschlossen. Ins Repo kommen nur Exporte für das Web.
 
 ## Lokal starten
 
-`index.html` im Browser öffnen oder in VS Code mit «Live Server».
+In VS Code mit «Live Server» oder im Projektordner `python3 -m http.server 8080`
+und dann `http://localhost:8080` öffnen. Per Doppelklick (`file://`) blockiert der
+Browser das Laden von `data/projekte.json`, dann erscheinen nur die zwei statischen
+Projektkarten.
 
 ## Stand
 
