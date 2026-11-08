@@ -91,3 +91,77 @@ footer {
     text-align: center;
     border-top: 1px solid var(--farbe-linie);
 }
+
+/* Projekte: Filter und Kartenraster */
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--abstand-xs);
+    margin-bottom: var(--abstand-m);
+}
+
+.filter[hidden] {
+    display: none;
+}
+
+.filter button {
+    margin-top: 0;
+    padding: var(--abstand-xs) var(--abstand-s);
+    font: inherit;
+    font-size: var(--text-s);
+    color: var(--farbe-text);
+    background-color: var(--farbe-bg);
+    border: 1px solid var(--farbe-linie);
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.filter button:hover {
+    border-color: var(--farbe-akzent);
+}
+
+.filter button[aria-pressed="true"] {
+    color: var(--farbe-akzent-kontrast);
+    background-color: var(--farbe-akzent);
+    border-color: var(--farbe-akzent);
+}
+
+.projekt-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+    gap: var(--abstand-s);
+}
+
+.projekt-liste .card {
+    margin-bottom: 0;
+}
+
+.projekt-kategorie {
+    margin-bottom: 0;
+    font-size: var(--text-s);
+    color: var(--farbe-akzent);
+}
+
+.projekt-kategorie + h3 {
+    margin-top: 0.25rem;
+}
+
+.projekt-meta {
+    font-size: var(--text-s);
+    color: var(--farbe-text-leise);
+}
+
+.projekt-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.projekt-tags li {
+    padding: 0 var(--abstand-xs);
+    font-size: var(--text-s);
+    background-color: var(--farbe-bg-alt);
+    border-radius: var(--radius);
+}
