@@ -30,5 +30,16 @@ Inhalte und Struktur stehen. Offen sind Responsivität (Media Queries), JavaScri
 (Navigation, Galerie, Formularvalidierung) und die Bilder. Siehe die
 [Issues](https://github.com/yannicdoutaz/portfolio-page/issues).
 
+## KI-Nutzung
+
+Im Modul EWEB ist der Einsatz von KI vorgesehen, er muss aber offengelegt werden.
+Ab November 2026 arbeite ich an dieser Seite mit Claude (Anthropic, Claude Code).
+Claude hilft beim Entwerfen und Prüfen von HTML, CSS und JavaScript, erklärt Code
+und recherchiert Bibliotheken und APIs. Ich prüfe jeden Vorschlag, bevor er ins
+Repo kommt.
+
+Commits, an denen Claude mitgeschrieben hat, tragen in der Nachricht eine Zeile
+`KI: …` mit Angabe, wofür KI eingesetzt wurde.
+
 ## Repository-Historie
 Ursprünglich auf dem privaten Account angelegt, für das Modul EWEB (BFH) auf den Studienaccount verschoben und im November 2026 zurück auf den privaten Account transferiert, damit das Projekt über das Studium hinaus weitergeführt wird. Der Commit-Verlauf ist vollständig erhalten.
