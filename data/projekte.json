@@ -1,0 +1,67 @@
+{
+    "kategorien": [
+        { "id": "foto-video", "label": "Fotografie und Video" },
+        { "id": "automatisierung-ki", "label": "Automatisierung und KI" },
+        { "id": "studium", "label": "Studium" }
+    ],
+    "projekte": [
+        {
+            "titel": "Coverfoto Herbstkatalog",
+            "kategorie": "foto-video",
+            "meta": "Hauptner Jagd · Kundenauftrag · 2022",
+            "text": "Das Titelbild für den Herbstkatalog von Hauptner Jagd in der Schweiz und in Deutschland: zwei Jäger auf der Pirsch im Haslimoos, im Morgennebel bei Sonnenaufgang.",
+            "tags": ["Fotografie", "Shooting-Planung", "Print"],
+            "link": "hauptner-coverfoto.html"
+        },
+        {
+            "titel": "Abschiedsfilm",
+            "kategorie": "foto-video",
+            "meta": "Reka · Kundenauftrag · 2024",
+            "text": "Ein einstündiger Dankesfilm zur Pensionierung einer langjährigen Person bei Reka, als Überraschung im Kinosaal vor über 100 Gästen gezeigt.",
+            "tags": ["Video", "Interviews", "Schnitt"],
+            "link": "reka-abschiedsfilm.html"
+        },
+        {
+            "titel": "Support-Cockpit für Zoho Desk",
+            "kategorie": "automatisierung-ki",
+            "meta": "Arbeitsprojekt · Technischer Support · 2026",
+            "text": "Eine Live-Übersicht über die offenen Support-Tickets: Dringlichkeit, Fristen und Auslastung im Team auf einen Blick. Status und Besitzer lassen sich direkt im Cockpit ändern. Die Anbindung läuft über einen MCP-Connector mit bewusst knappen Rechten: Das Cockpit darf Tickets lesen und aktualisieren, aber keine Mails an Kundinnen und Kunden senden.",
+            "tags": ["Zoho Desk", "MCP", "Claude"]
+        },
+        {
+            "titel": "Automatische Ticket-Sortierung",
+            "kategorie": "automatisierung-ki",
+            "meta": "Arbeitsprojekt · Technischer Support · 2026",
+            "text": "Rund 60 Prozent der eingehenden Tickets sind Systemmails. Eine Custom Function und Zuweisungsregeln in Zoho Desk sortieren sie automatisch aus, damit das Team nur noch echte Anfragen sieht. In Arbeit ist ein KI-Agent, der Tickets klassifiziert und Antworten vorschlägt.",
+            "tags": ["Zoho Desk", "Automatisierung", "KI-Agent"]
+        },
+        {
+            "titel": "Second Brain mit Claude",
+            "kategorie": "automatisierung-ki",
+            "meta": "Eigenes Projekt · 2026",
+            "text": "Mein Wissenssystem in Obsidian, mit festen Regeln für Struktur und Ablage. Claude greift über Claude Code und einen MCP-Connector darauf zu, legt Notizen selbst ab und hält fest, wo KI mitgearbeitet hat. So finde ich auf jedem Gerät denselben Stand.",
+            "tags": ["Obsidian", "Claude Code", "MCP"]
+        },
+        {
+            "titel": "foto-rename",
+            "kategorie": "automatisierung-ki",
+            "meta": "Eigenes Projekt · 2026",
+            "text": "Ein Bash-Skript, das Fotos vor dem Import in Lightroom nach einem festen Schema umbenennt: Datum, Kategorie, Kamera und Bildnummer. Es liest die EXIF-Daten mit exiftool und läuft standardmässig als Trockenlauf.",
+            "tags": ["Bash", "exiftool", "Lightroom"]
+        },
+        {
+            "titel": "StudyGuide",
+            "kategorie": "studium",
+            "meta": "Eigenes Projekt · BFH · 2026",
+            "text": "Mein Lernsystem fürs Studium. Ein Python-Skript übernimmt die Unterlagen aus Moodle, ein Git-Repo hält Inhalte, Lernmodell und Entscheide fest. Eine Web-App mit zwei Modi plant das Semester und fragt den Stoff mit Karteikarten ab, die Aufgaben laufen mit TickTick synchron.",
+            "tags": ["Python", "Claude", "TickTick"]
+        },
+        {
+            "titel": "RAG-Chatbot für den Support",
+            "kategorie": "studium",
+            "meta": "BFH · Gruppenprojekt SAI3 · 2026",
+            "text": "Ein Chatbot, der Support-Fragen mit dem Wissen aus zwölf Monaten Ticketdaten beantworten soll. Im Projekt entstanden eine Datenpipeline über die Zoho-Desk-API, ein Filter gegen Systemmails und Rauschen sowie die Wahl des Embedding-Modells.",
+            "tags": ["Python", "RAG", "Embeddings"]
+        }
+    ]
+}
