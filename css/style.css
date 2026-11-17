@@ -3,6 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Familjen+Grotesk:wght@400;600;700&display=swap");
 
 :root {
+    /* Browser-Bedienelemente (Scrollleisten, Formularteile) dunkel darstellen */
+    color-scheme: dark;
+
     /* Farben */
     --farbe-grund: #1b2117;        /* Moos-Schwarz, Seitengrund */
     --farbe-flaeche: #262d21;      /* hellere Moosfläche: Navigation, Felder */
@@ -54,6 +57,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--abstand-m);
+    scrollbar-color: var(--farbe-linie) var(--farbe-grund);
 }
 
 body {
@@ -805,6 +809,43 @@ body > header:not(.kopfzeile) nav a {
 
 .formular textarea {
     resize: vertical;
+}
+
+/* Vom Browser automatisch ausgefüllte Felder bleiben im Farbschema */
+.formular input:-webkit-autofill {
+    -webkit-text-fill-color: var(--farbe-text);
+    box-shadow: 0 0 0 100px var(--farbe-flaeche) inset;
+}
+
+.formular fieldset {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+}
+
+/* Solange der Versand fehlt: Felder sichtbar, aber gedämpft und nicht bedienbar */
+.formular fieldset:disabled {
+    opacity: 0.55;
+}
+
+.formular fieldset:disabled .knopf {
+    cursor: not-allowed;
+}
+
+.formular fieldset:disabled textarea {
+    resize: none;
+}
+
+.formular-hinweis {
+    margin: 0;
+    padding: 0.9rem 1.1rem;
+    font-size: var(--text-s);
+    color: var(--farbe-text);
+    border: 1.5px solid var(--farbe-gold);
+    border-radius: 14px;
 }
 
 .formular input:focus-visible,

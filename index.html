@@ -138,7 +138,7 @@
                         <li><span class="logo" aria-hidden="true"></span>Shooting- und Projektplanung</li>
                         <li><span class="logo" aria-hidden="true"></span>Fotografie für Print und Web</li>
                         <li><span class="logo" aria-hidden="true"></span>Video: Interviews und Schnitt</li>
-                        <li><span class="logo" aria-hidden="true"></span>Lightroom und Videoschnitt</li>
+                        <li><span class="logo" aria-hidden="true"></span>Bildbearbeitung in Lightroom</li>
                     </ul>
                 </div>
                 <div class="feld feld--rinde"><span class="notiz">Bild folgt · Making-of Hauptner-Shooting</span></div>
@@ -235,12 +235,16 @@
         <div class="schluss-inhalt">
             <div>
                 <h2>Lass uns<br>zusammenarbeiten</h2>
-                <p>Fragen zu einem Projekt oder eine Anfrage für Fotos oder Video? Schreib mir über das Formular oder direkt per E-Mail.</p>
+                <p>Fragen zu einem Projekt oder eine Anfrage für Fotos oder Video? Schreib mir per E-Mail.</p>
                 <a class="knopf knopf--gold" href="mailto:doutaz.yannic@gmail.com">doutaz.yannic@gmail.com <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></a>
             </div>
 
-            <!-- Versand über Formspree folgt: action-Attribut ergänzen, sobald der Endpoint eingerichtet ist. -->
+            <!-- Versand über Formspree folgt: action und method="post" ergänzen, fieldset freigeben
+                 und den Datenschutz-Satz zu Formspree wieder einsetzen, sobald der Endpoint steht. -->
             <form class="formular">
+                <p class="formular-hinweis">Das Formular wird gerade angeschlossen. Bis dahin erreichst du mich direkt per E-Mail.</p>
+                <fieldset disabled>
+                <legend class="sr-only">Nachricht schreiben</legend>
                 <div>
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" autocomplete="name" required>
@@ -254,7 +258,7 @@
                     <textarea id="nachricht" name="nachricht" rows="5" minlength="10" required></textarea>
                 </div>
                 <button class="knopf" type="submit">Nachricht senden <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></button>
-                <p class="datenschutz">Die Angaben werden über den Dienst Formspree übermittelt und nur zur Beantwortung deiner Anfrage verwendet.</p>
+                </fieldset>
             </form>
         </div>
 
