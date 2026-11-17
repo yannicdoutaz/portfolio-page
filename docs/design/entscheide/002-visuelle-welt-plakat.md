@@ -1,7 +1,7 @@
 # 002 Visuelle Welt: Das Plakat
 
 - Datum: 2026-11-09
-- Status: entschieden
+- Status: abgelöst durch [003 Moos bei Nacht](003-visuelle-welt-moos-bei-nacht.md)
 - Figma: [Portfolio Design, Seite «Runde 1 – Visuelle Welt»](https://www.figma.com/design/2t7VKj9aWQhTEDvceIYfvy?node-id=5-2)
 
 ![Variante A, erster Bildschirm und Anfang der Projekte](../bilder/002-plakat-startseite.png)

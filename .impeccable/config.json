@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-17T15:23:45.107Z",
+        "reason": "Yannic chose Stil 1 incl. Laufband (Design-Entscheid 003, 17.11.); band is aria-hidden, repeats nav terms, stops under prefers-reduced-motion"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-17T15:23:45.131Z",
+        "reason": "Claude: false positive, the notes inside image fields are absolutely positioned with 1rem inset; detector reads the field as flush"
+      }
+    ]
+  }
+}
