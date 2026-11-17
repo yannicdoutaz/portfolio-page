@@ -8,14 +8,15 @@ Portfolioseite von Yannic Doutaz, Einzelarbeit im Modul EWEB Web Engineering (BF
 ## Struktur
 
 ```
-index.html                 Startseite: Hero, Über mich, Skills, Projekte, Kontakt
+index.html                 Startseite: Hero mit Bildmosaik, Über mich, Bereiche, Projekte, Kontakt
 hauptner-coverfoto.html    Projekt: Coverfoto Herbstkatalog, Hauptner Jagd
 reka-abschiedsfilm.html    Projekt: Abschiedsfilm, Reka
 galerie.html               Fotogalerie
 css/style.css              Design-Tokens, Layout
 js/main.js                 Projektkarten und Filter aus data/projekte.json
 data/projekte.json         Projektdaten (Titel, Kategorie, Text, Tags, Link)
-assets/img/                web-optimierte Bilder
+assets/img/                web-optimierte Bilder: Porträt und Logo von Yannic Doutaz
+docs/design/               Design-Prozess in Figma und Design-Entscheide
 ```
 
 Die Bild-Originale liegen in `Webseite - Bilder/` und sind per `.gitignore` von der
@@ -30,17 +31,23 @@ Projektkarten.
 
 ## Stand
 
-Inhalte und Struktur stehen. Offen sind Responsivität (Media Queries), JavaScript
-(Navigation, Galerie, Formularvalidierung) und die Bilder. Siehe die
+Die Startseite ist im Stil «Moos bei Nacht» gestaltet
+([Design-Entscheid 003](docs/design/entscheide/003-visuelle-welt-moos-bei-nacht.md)),
+responsiv und mit Menü für das Handy. Offen sind echte Projektbilder, die Unterseiten im
+neuen Stil, die Galerie sowie Versand und Validierung des Formulars. Siehe die
 [Issues](https://github.com/yannicdoutaz/portfolio-page/issues).
+
+Schriften: Anton und Familjen Grotesk (SIL Open Font License), derzeit über Google Fonts
+eingebunden.
 
 ## KI-Nutzung
 
 Im Modul EWEB ist der Einsatz von KI vorgesehen, er muss aber offengelegt werden.
 Ab November 2026 arbeite ich an dieser Seite mit Claude (Anthropic, Claude Code).
 Claude hilft beim Entwerfen und Prüfen von HTML, CSS und JavaScript, erklärt Code
-und recherchiert Bibliotheken und APIs. Ich prüfe jeden Vorschlag, bevor er ins
-Repo kommt.
+und recherchiert Bibliotheken und APIs. Für das Redesign hat Claude Gestaltungsvarianten
+in Figma entworfen und die gewählte Variante in HTML, CSS und JavaScript umgesetzt. Ich
+prüfe jeden Vorschlag, bevor er ins Repo kommt.
 
 Commits, an denen Claude mitgeschrieben hat, tragen in der Nachricht eine Zeile
 `KI: …` mit Angabe, wofür KI eingesetzt wurde.
