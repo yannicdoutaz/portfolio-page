@@ -1,103 +1,644 @@
+/* Stil «Moos bei Nacht» (Design-Entscheid 003, docs/design/entscheide/)
+   Schriften vorerst über Google Fonts, Umstellung auf eigene Dateien folgt. */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Familjen+Grotesk:wght@400;600;700&display=swap");
+
 :root {
-    /* Farben – neutral, damit die Bilder die einzigen Farbflächen sind */
-    --farbe-bg: #ffffff;
-    --farbe-bg-alt: #f4f4f2;
-    --farbe-text: #1b1b1a;
-    --farbe-text-leise: #6b6b66;
-    --farbe-linie: #dcdcd6;
-    --farbe-akzent: #3f6b4f;
-    --farbe-akzent-kontrast: #ffffff;
+    /* Farben */
+    --farbe-grund: #1b2117;        /* Moos-Schwarz, Seitengrund */
+    --farbe-flaeche: #262d21;      /* hellere Moosfläche: Navigation, Felder */
+    --farbe-tief: #141911;         /* Schlussbereich */
+    --farbe-text: #ece5d2;         /* Haferweiss */
+    --farbe-text-leise: #b3b09a;   /* Meta-Zeilen, Fliesstext zweiter Ordnung */
+    --farbe-linie: #3c4535;
+    --farbe-gold: #d8b04c;         /* einzige Signalfarbe: Aktionen, Bögen */
+    --farbe-auf-gold: #1b2117;
+    /* Erdtöne nur für Bildfelder */
+    --ton-oliv: #56633a;
+    --ton-rinde: #7a5b3a;
+    --ton-moos: #3b4a2c;
+    --ton-ocker: #b08a3e;
+    --ton-tief: #2f3a27;
 
-    /* Typografie */
-    --schrift: system-ui, -apple-system, "Segoe UI", sans-serif;
+    /* Schrift */
+    --schrift-titel: "Anton", "Arial Narrow", sans-serif;
+    --schrift-text: "Familjen Grotesk", system-ui, sans-serif;
     --text-s: 0.875rem;
-    --text-m: 1rem;
+    --text-m: 1.0625rem;
     --text-l: 1.25rem;
-    --text-xl: clamp(1.75rem, 4vw, 2.75rem);
+    --titel-xxl: clamp(3.5rem, 7.8vw, 7rem);
+    --titel-xl: clamp(2.5rem, 4.4vw, 4rem);
+    --titel-l: clamp(2rem, 3.6vw, 3.25rem);
+    --titel-m: clamp(1.5rem, 2.4vw, 2.125rem);
 
-    /* Abstände – eine Skala statt Zufallswerten */
+    /* Abstände */
     --abstand-xs: 0.5rem;
-    --abstand-s: 0.75rem;
-    --abstand-m: 1.25rem;
-    --abstand-l: 2rem;
-    --abstand-xl: 4rem;
+    --abstand-s: 1rem;
+    --abstand-m: 1.5rem;
+    --abstand-l: 3rem;
+    --abstand-xl: clamp(4.5rem, 9vw, 7.5rem);
+    --rand: clamp(1.25rem, 3.4vw, 3rem);
 
-    /* Layout */
-    --breite-inhalt: 70ch;
-    --radius: 4px;
+    /* Formen */
+    --radius: 22px;
+    --radius-pille: 999px;
+    --breite-text: 65ch;
+}
+
+/* ---------- Grundlagen ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--abstand-m);
 }
 
 body {
     margin: 0;
-    font-family: var(--schrift);
+    font-family: var(--schrift-text);
     font-size: var(--text-m);
     line-height: 1.6;
     color: var(--farbe-text);
-    background-color: var(--farbe-bg);
+    background-color: var(--farbe-grund);
+    -webkit-font-smoothing: antialiased;
 }
 
-header,
-footer {
-    padding: var(--abstand-s) var(--abstand-m);
+::selection {
+    color: var(--farbe-auf-gold);
+    background-color: var(--farbe-gold);
 }
 
-nav a {
-    margin-right: var(--abstand-m);
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration-color: var(--farbe-gold);
+    text-underline-offset: 0.2em;
 }
 
 a:hover {
-    color: var(--farbe-akzent);
+    color: var(--farbe-gold);
 }
 
-main {
-    max-width: var(--breite-inhalt);
-    margin: 0 auto;
-    padding: var(--abstand-m);
+:focus-visible {
+    outline: 2px solid var(--farbe-gold);
+    outline-offset: 3px;
 }
 
-section {
-    margin-bottom: var(--abstand-xl);
+h1,
+h2,
+h3 {
+    margin: 0;
+    font-family: var(--schrift-titel);
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-wrap: balance;
 }
 
-h1 {
-    font-size: var(--text-xl);
-    line-height: 1.2;
+p {
+    text-wrap: pretty;
 }
 
-.card {
-    border: 1px solid var(--farbe-linie);
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* ---------- Logo (Maske, damit es jede Farbe annehmen kann) ---------- */
+.logo {
+    display: inline-block;
+    width: 1.75rem;
+    aspect-ratio: 233 / 256;
+    background-color: currentColor;
+    -webkit-mask: url("../assets/img/logo-d.png") center / contain no-repeat;
+    mask: url("../assets/img/logo-d.png") center / contain no-repeat;
+}
+
+/* ---------- Knöpfe ---------- */
+.knopf {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.375rem 0.375rem 0.375rem 1.25rem;
+    font: 600 0.9375rem/1 var(--schrift-text);
+    color: var(--farbe-grund);
+    text-decoration: none;
+    background-color: var(--farbe-text);
+    border: 0;
+    border-radius: var(--radius-pille);
+    cursor: pointer;
+    transition: background-color 0.2s ease-out;
+}
+
+.knopf:hover {
+    color: var(--farbe-grund);
+    background-color: var(--farbe-gold);
+}
+
+.knopf-kreis {
+    display: grid;
+    place-items: center;
+    width: 2.375rem;
+    height: 2.375rem;
+    color: var(--farbe-text);
+    background-color: var(--farbe-grund);
+    border-radius: 50%;
+}
+
+.knopf-kreis svg,
+.pfeil {
+    width: 1rem;
+    height: 1rem;
+}
+
+.knopf--rahmen {
+    padding: 0.8rem 1.4rem;
+    color: var(--farbe-text);
+    background-color: transparent;
+    border: 1.5px solid var(--farbe-linie);
+}
+
+.knopf--rahmen:hover {
+    color: var(--farbe-grund);
+    border-color: var(--farbe-gold);
+}
+
+.knopf--gold {
+    color: var(--farbe-auf-gold);
+    background-color: var(--farbe-gold);
+}
+
+.knopf--gold:hover {
+    background-color: var(--farbe-text);
+}
+
+/* ---------- Kopfzeile und Navigation ---------- */
+.kopfzeile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--abstand-s);
+    padding: 1.75rem var(--rand);
+}
+
+.marke {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.marke:hover {
+    color: var(--farbe-text);
+}
+
+.navpille {
+    display: flex;
+    gap: 0.375rem;
+    padding: 0.375rem;
+    background-color: var(--farbe-flaeche);
+    border-radius: var(--radius-pille);
+}
+
+.navpille a {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    border-radius: var(--radius-pille);
+}
+
+.navpille a[aria-current="page"],
+.navpille a:hover {
+    color: var(--farbe-grund);
+    background-color: var(--farbe-text);
+}
+
+.menue-knopf {
+    display: none;
+}
+
+/* Kontakt steht auf grossen Bildschirmen als eigener Knopf rechts */
+.navpille .nur-mobil {
+    display: none;
+}
+
+/* Unterseiten: Kopfzeile ohne eigene Klassen */
+body > header:not(.kopfzeile) {
+    padding: 1.75rem var(--rand);
+}
+
+body > header:not(.kopfzeile) nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+}
+
+body > header:not(.kopfzeile) nav a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    background-color: var(--farbe-flaeche);
+    border-radius: var(--radius-pille);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: var(--abstand-l);
+    padding: clamp(2rem, 4vw, 3.5rem) var(--rand) var(--abstand-l);
+}
+
+.hero h1 {
+    font-size: var(--titel-xxl);
+    line-height: 0.92;
+}
+
+.rolle {
+    max-width: 30rem;
+    margin: 1.4rem 0 0;
+    color: var(--farbe-text-leise);
+}
+
+.aussage {
+    margin: 0;
+    font-family: var(--schrift-titel);
+    font-size: var(--titel-xl);
+    line-height: 1;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.aussage span {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.pille {
+    display: inline-grid;
+    place-items: center;
+    width: 5.25rem;
+    height: 2.9rem;
+    color: var(--farbe-auf-gold);
+    background-color: var(--farbe-gold);
+    border-radius: var(--radius-pille);
+    transition: background-color 0.2s ease-out;
+}
+
+.pille:hover {
+    color: var(--farbe-auf-gold);
+    background-color: var(--farbe-text);
+}
+
+.pille svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* ---------- Laufband (Signatur) ---------- */
+.band {
+    overflow: hidden;
+    color: var(--farbe-text-leise);
+    border-block: 1px solid var(--farbe-linie);
+}
+
+.band-spur {
+    display: flex;
+    width: max-content;
+    animation: laufband 60s linear infinite;
+}
+
+.band ul {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin: 0;
+    padding: 1rem 0.8rem;
+    list-style: none;
+    font-size: 0.8125rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.band li {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.band .logo {
+    width: 0.85rem;
+    color: var(--farbe-text);
+}
+
+@keyframes laufband {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .band-spur {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ---------- Bildfelder ---------- */
+.feld {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
     border-radius: var(--radius);
-    padding: var(--abstand-xs) var(--abstand-m);
-    margin-bottom: var(--abstand-s);
+    background-color: var(--ton-oliv);
 }
 
-label {
-    display: block;
-    margin-top: var(--abstand-xs);
-}
-
-input {
+.feld img {
     width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: cover;
 }
 
-button {
-    display: block;
-    margin-top: var(--abstand-s);
+.notiz {
+    position: absolute;
+    left: 1rem;
+    bottom: 0.875rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    color: var(--farbe-text);
 }
 
-footer {
-    text-align: center;
+.feld--ocker .notiz {
+    color: var(--farbe-auf-gold);
+}
+
+.feld--oliv { background-color: var(--ton-oliv); }
+.feld--rinde { background-color: var(--ton-rinde); }
+.feld--moos { background-color: var(--ton-moos); }
+.feld--ocker { background-color: var(--ton-ocker); }
+.feld--tief { background-color: var(--ton-tief); }
+
+/* ---------- Mosaik ---------- */
+.mosaik {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.12fr 1.4fr;
+    grid-template-rows: 12.5rem 12.5rem 10.5rem;
+    gap: 1rem;
+    padding: 2.5rem var(--rand) 0;
+}
+
+.mosaik .m1 { grid-column: 1; grid-row: 1 / 3; }
+.mosaik .m2 { grid-column: 2; grid-row: 1; }
+.mosaik .m3 { grid-column: 2; grid-row: 2 / 4; }
+.mosaik .m4 { grid-column: 3; grid-row: 1 / 4; }
+.mosaik .m5 { grid-column: 4; grid-row: 1 / 3; }
+.mosaik .m6 { grid-column: 1; grid-row: 3; }
+.mosaik .m7 { grid-column: 4; grid-row: 3; }
+
+/* ---------- Abschnitte ---------- */
+.abschnitt {
+    padding: var(--abstand-xl) var(--rand) 0;
+}
+
+.abschnitt-kopf {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--abstand-s);
+    margin-bottom: var(--abstand-l);
+}
+
+.abschnitt-kopf h2 {
+    font-size: var(--titel-xl);
+}
+
+/* ---------- Über mich ---------- */
+.ueber {
+    display: grid;
+    grid-template-columns: minmax(0, 37.5rem) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+}
+
+.bildrahmen {
+    position: relative;
+    margin: 0;
+    padding: 1.75rem;
+}
+
+.bildrahmen img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+.bogen {
+    position: absolute;
+    width: 9.5rem;
+    height: 9.5rem;
+    border: 4px solid var(--farbe-gold);
+}
+
+.bogen--oben {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-top-left-radius: 100%;
+}
+
+.bogen--unten {
+    right: 0;
+    bottom: 0;
+    border-left: 0;
+    border-top: 0;
+    border-bottom-right-radius: 100%;
+}
+
+.einstieg {
+    margin: 0 0 1.75rem;
+    font-family: var(--schrift-titel);
+    font-size: var(--titel-m);
+    line-height: 1.12;
+    text-transform: uppercase;
+    max-width: 22ch;
+}
+
+.fliesstext {
+    max-width: var(--breite-text);
+    color: var(--farbe-text-leise);
+}
+
+.fliesstext p {
+    margin: 0 0 0.9rem;
+}
+
+.fakten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+    max-width: var(--breite-text);
+    margin: 2.5rem 0 0;
+    padding-top: 1.75rem;
     border-top: 1px solid var(--farbe-linie);
 }
 
-/* Projekte: Filter und Kartenraster */
+.fakten dt {
+    margin-bottom: 0.3rem;
+    font-size: 0.8125rem;
+    color: var(--farbe-text-leise);
+}
+
+.fakten dd {
+    margin: 0;
+    font-weight: 600;
+}
+
+.ueber .knopf {
+    margin-top: 2.25rem;
+}
+
+/* ---------- Bereiche (Reiter) ---------- */
+.reiter-pfeile {
+    display: flex;
+    gap: 0.625rem;
+}
+
+.rundknopf {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: var(--farbe-text);
+    background: transparent;
+    border: 1.5px solid var(--farbe-linie);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.rundknopf:hover {
+    color: var(--farbe-grund);
+    background-color: var(--farbe-gold);
+    border-color: var(--farbe-gold);
+}
+
+.reiter-leiste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-bottom: 2.1rem;
+}
+
+.reiter {
+    padding: 0.65rem 1.1rem;
+    font: inherit;
+    font-size: 0.9375rem;
+    color: var(--farbe-text);
+    background: transparent;
+    border: 1.5px solid var(--farbe-linie);
+    border-radius: var(--radius-pille);
+    cursor: pointer;
+}
+
+.reiter:hover {
+    border-color: var(--farbe-gold);
+}
+
+.reiter[aria-selected="true"] {
+    color: var(--farbe-grund);
+    background-color: var(--farbe-text);
+    border-color: var(--farbe-text);
+}
+
+.bereich {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--abstand-l);
+    align-items: stretch;
+}
+
+.bereich + .bereich {
+    margin-top: var(--abstand-xl);
+}
+
+.bereich h3 {
+    margin-bottom: 1.1rem;
+    font-size: var(--titel-l);
+}
+
+.bereich p {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--farbe-text-leise);
+}
+
+.liste {
+    margin: 1.9rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--farbe-linie);
+}
+
+.liste li {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--farbe-linie);
+}
+
+.liste .logo {
+    flex: none;
+    width: 0.75rem;
+}
+
+.bereich .feld {
+    min-height: 26rem;
+}
+
+/* Mit JavaScript: nur der gewählte Bereich ist sichtbar */
+.js .bereich + .bereich {
+    margin-top: 0;
+}
+
+.bereich[hidden] {
+    display: none;
+}
+
+/* Ohne JavaScript stehen alle Bereiche untereinander, Reiter wären wirkungslos */
+.no-js .reiter-leiste,
+.no-js .reiter-pfeile {
+    display: none;
+}
+
+/* ---------- Projekte ---------- */
 .filter {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--abstand-xs);
-    margin-bottom: var(--abstand-m);
+    gap: 0.625rem;
 }
 
 .filter[hidden] {
@@ -105,63 +646,361 @@ footer {
 }
 
 .filter button {
-    margin-top: 0;
-    padding: var(--abstand-xs) var(--abstand-s);
+    padding: 0.65rem 1.1rem;
     font: inherit;
-    font-size: var(--text-s);
+    font-size: 0.9375rem;
     color: var(--farbe-text);
-    background-color: var(--farbe-bg);
-    border: 1px solid var(--farbe-linie);
-    border-radius: var(--radius);
+    background: transparent;
+    border: 1.5px solid var(--farbe-linie);
+    border-radius: var(--radius-pille);
     cursor: pointer;
 }
 
 .filter button:hover {
-    border-color: var(--farbe-akzent);
+    border-color: var(--farbe-gold);
 }
 
 .filter button[aria-pressed="true"] {
-    color: var(--farbe-akzent-kontrast);
-    background-color: var(--farbe-akzent);
-    border-color: var(--farbe-akzent);
+    color: var(--farbe-grund);
+    background-color: var(--farbe-text);
+    border-color: var(--farbe-text);
 }
 
 .projekt-liste {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
-    gap: var(--abstand-s);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 2.75rem 1.5rem;
 }
 
-.projekt-liste .card {
-    margin-bottom: 0;
+.karte {
+    display: flex;
+    flex-direction: column;
 }
 
-.projekt-kategorie {
-    margin-bottom: 0;
-    font-size: var(--text-s);
-    color: var(--farbe-akzent);
+.karte[hidden] {
+    display: none;
 }
 
-.projekt-kategorie + h3 {
-    margin-top: 0.25rem;
+.karte .feld {
+    aspect-ratio: 4 / 3;
+}
+
+.karte-kopf {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.1rem;
+}
+
+.karte h3 {
+    font-family: var(--schrift-text);
+    font-size: var(--text-l);
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.karte h3 a {
+    text-decoration: none;
 }
 
 .projekt-meta {
+    margin: 0.3rem 0 0;
     font-size: var(--text-s);
     color: var(--farbe-text-leise);
 }
 
-.projekt-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
-    padding: 0;
-    list-style: none;
+.karte-text {
+    margin: 0.8rem 0 0;
+    font-size: 0.9375rem;
+    color: var(--farbe-text-leise);
 }
 
-.projekt-tags li {
-    padding: 0 var(--abstand-xs);
+.projekt-tags {
+    margin: 0.7rem 0 0;
+    font-size: 0.8125rem;
+    color: var(--farbe-text-leise);
+}
+
+.ansehen {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.ansehen svg {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+/* ---------- Schluss: Kontakt und Fuss ---------- */
+.schluss {
+    margin-top: var(--abstand-xl);
+    overflow: hidden;
+    background-color: var(--farbe-tief);
+}
+
+.schluss .band {
+    color: var(--farbe-auf-gold);
+    background-color: var(--farbe-gold);
+    border: 0;
+}
+
+.schluss .band .logo {
+    color: var(--farbe-auf-gold);
+}
+
+.schluss-inhalt {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    padding: 5rem var(--rand) 2.5rem;
+}
+
+.schluss h2 {
+    margin-bottom: 1.6rem;
+    font-size: var(--titel-xl);
+    line-height: 1.02;
+}
+
+.schluss-inhalt > div > p {
+    max-width: 30rem;
+    margin: 0 0 1.75rem;
+    color: var(--farbe-text-leise);
+}
+
+/* Formular */
+.formular {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.formular label {
+    display: block;
+    margin-bottom: 0.45rem;
     font-size: var(--text-s);
-    background-color: var(--farbe-bg-alt);
-    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+.formular input,
+.formular textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    font: inherit;
+    color: var(--farbe-text);
+    background-color: var(--farbe-flaeche);
+    border: 1.5px solid var(--farbe-linie);
+    border-radius: 14px;
+    caret-color: var(--farbe-gold);
+}
+
+.formular textarea {
+    resize: vertical;
+}
+
+.formular input:focus-visible,
+.formular textarea:focus-visible {
+    border-color: var(--farbe-gold);
+    outline: none;
+}
+
+.formular .knopf {
+    justify-self: start;
+}
+
+.datenschutz {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--farbe-text-leise);
+}
+
+.riesig {
+    margin: 0;
+    padding: 1rem var(--rand) 0;
+    font-family: var(--schrift-titel);
+    font-size: clamp(6rem, 23vw, 20.5rem);
+    line-height: 0.8;
+    color: var(--farbe-flaeche);
+    text-transform: uppercase;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.fuss {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding: 1.4rem var(--rand) 1.6rem;
+    font-size: 0.8125rem;
+    color: var(--farbe-text-leise);
+    border-top: 1px solid #2b3326;
+}
+
+/* Unterseiten: einfacher Rahmen, bis sie neu gestaltet sind */
+main:not(.start) {
+    max-width: calc(var(--breite-text) + 2 * var(--rand));
+    margin: 0 auto;
+    padding: var(--abstand-l) var(--rand) var(--abstand-xl);
+}
+
+main:not(.start) h1 {
+    margin-bottom: 1rem;
+    font-size: var(--titel-xl);
+}
+
+main:not(.start) h2 {
+    margin: 2.5rem 0 1rem;
+    font-size: var(--titel-m);
+}
+
+body > footer:not(.schluss) {
+    padding: 1.5rem var(--rand);
+    color: var(--farbe-text-leise);
+    border-top: 1px solid var(--farbe-linie);
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 64rem) {
+    .navpille a {
+        padding: 0.55rem 0.8rem;
+    }
+
+    .mosaik {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 11rem 11rem 11rem;
+    }
+
+    .mosaik .m1 { grid-column: 1; grid-row: 1 / 3; }
+    .mosaik .m2 { grid-column: 2; grid-row: 1; }
+    .mosaik .m3 { grid-column: 2; grid-row: 2 / 4; }
+    .mosaik .m4 { grid-column: 3; grid-row: 1 / 4; }
+    .mosaik .m5 { grid-column: 1; grid-row: 3; }
+    .mosaik .m6,
+    .mosaik .m7 { display: none; }
+
+    .ueber,
+    .bereich,
+    .schluss-inhalt {
+        grid-template-columns: 1fr;
+    }
+
+    .bildrahmen {
+        max-width: 30rem;
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 47.5rem) {
+    .kopfzeile {
+        position: relative;
+        flex-wrap: wrap;
+        padding-block: 1.25rem;
+    }
+
+    .kopfzeile > .knopf {
+        display: none;
+    }
+
+    .menue-knopf {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.6rem 1.1rem;
+        font: 600 0.9375rem/1 var(--schrift-text);
+        color: var(--farbe-grund);
+        background-color: var(--farbe-text);
+        border: 0;
+        border-radius: var(--radius-pille);
+        cursor: pointer;
+    }
+
+    .menue-knopf svg {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    /* Ohne JavaScript bleibt die Navigation sichtbar */
+    .navpille {
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: var(--radius);
+    }
+
+    .navpille a {
+        padding: 0.9rem 1.1rem;
+        font-size: var(--text-l);
+    }
+
+    .navpille .nur-mobil {
+        display: block;
+    }
+
+    .js .navpille {
+        display: none;
+    }
+
+    .js .kopfzeile.offen .navpille {
+        display: flex;
+    }
+
+    .no-js .menue-knopf {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .aussage {
+        text-align: left;
+    }
+
+    .aussage span {
+        justify-content: flex-start;
+    }
+
+    .mosaik {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 9rem 9rem 9rem 9rem;
+        gap: 0.75rem;
+    }
+
+    .mosaik .m1 { grid-column: 1; grid-row: 1 / 3; }
+    .mosaik .m4 { grid-column: 2; grid-row: 1 / 4; }
+    .mosaik .m2 { grid-column: 1; grid-row: 3 / 5; }
+    .mosaik .m5 { grid-column: 2; grid-row: 4; }
+    .mosaik .m3 { display: none; }
+
+    .bogen {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .bildrahmen {
+        padding: 1.1rem;
+    }
+
+    .fakten {
+        grid-template-columns: 1fr;
+    }
+
+    .bereich .feld {
+        min-height: 15rem;
+    }
+
+    .fuss {
+        flex-direction: column;
+    }
 }

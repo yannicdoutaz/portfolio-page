@@ -1,116 +1,269 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Yannic Doutaz · Technik und Gestaltung</title>
     <meta name="description" content="Portfolio von Yannic Doutaz: Teamleiter Technischer Support, Student Digital Business &amp; AI an der BFH, Fotografie und Video.">
+    <meta name="theme-color" content="#1b2117">
+    <link rel="icon" type="image/png" href="assets/img/logo-d.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#start">Start</a>
+    <!-- Pfeil-Symbol einmal definieren, danach mit <use> wiederverwenden -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="pfeil" viewBox="0 0 16 16"><path d="M4 12L12 4M12 4H5.5M12 4V10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="links" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="rechts" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="menue" viewBox="0 0 16 16"><path d="M2 5h12M2 11h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    </svg>
+
+    <header class="kopfzeile">
+        <a class="marke" href="#start"><span class="logo" aria-hidden="true"></span>Yannic Doutaz</a>
+        <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="hauptnavigation">
+            Menü <svg aria-hidden="true"><use href="#menue"/></svg>
+        </button>
+        <nav id="hauptnavigation" class="navpille" aria-label="Hauptnavigation">
+            <a href="#start" aria-current="page">Start</a>
             <a href="#ueber-mich">Über mich</a>
+            <a href="#bereiche">Bereiche</a>
             <a href="#projekte">Projekte</a>
             <a href="galerie.html">Galerie</a>
-            <a href="#kontakt">Kontakt</a>
+            <a class="nur-mobil" href="#kontakt">Kontakt</a>
         </nav>
+        <a class="knopf" href="#kontakt">Kontakt <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></a>
     </header>
 
-    <main>
+    <main class="start">
         <section id="start">
-            <h1>Yannic Doutaz</h1>
-            <p class="hero-unterzeile">Teamleiter Technischer Support und Student Digital Business &amp; AI an der BFH.</p>
-            <p>Ich verbinde Technik und Gestaltung: im Beruf mit Support-Prozessen und Web, in der Freizeit mit Kamera und Schnitt.</p>
-            <!-- Porträtfoto kommt hierhin, sobald es gemacht ist (4:5) -->
-            <p class="hero-aktionen">
-                <a href="#projekte">Projekte ansehen</a>
-                <a href="#kontakt">Kontakt aufnehmen</a>
-            </p>
-        </section>
+            <div class="hero">
+                <div>
+                    <h1>Yannic<br>Doutaz</h1>
+                    <p class="rolle">Teamleiter Technischer Support und Student Digital Business &amp; AI an der BFH. Im Beruf Support-Prozesse und Web, in der Freizeit Kamera und Schnitt.</p>
+                </div>
+                <p class="aussage">
+                    <span>Technik <a class="pille" href="#projekte"><span class="sr-only">Projekte ansehen</span><svg aria-hidden="true"><use href="#pfeil"/></svg></a></span>
+                    <span>und Gestaltung</span>
+                </p>
+            </div>
 
-        <section id="ueber-mich">
-            <h2>Über mich</h2>
-            <p>Ich komme aus Allmendingen bei Thun und habe meine Lehre als Mediamatiker beim Bundesamt für Informatik und Telekommunikation (BIT) gemacht. Seit fünf Jahren arbeite ich bei myls, seit zweieinhalb Jahren als Teamleiter des technischen Supports. Daneben studiere ich Digital Business &amp; AI an der Berner Fachhochschule.</p>
-            <p>Was mich antreibt, ist die Verbindung von Technik und Gestaltung. Im Beruf heisst das: Abläufe so bauen, dass sie für Kundinnen, Kunden und Team funktionieren. Privat fotografiere und filme ich, am liebsten draussen in der Natur und bei Wildtieren, oft bei Sonnenaufgang.</p>
-        </section>
+            <!-- Laufband: zweimal derselbe Inhalt, damit die Schleife nahtlos ist -->
+            <div class="band" aria-hidden="true">
+                <div class="band-spur">
+                    <ul>
+                        <li>Fotografie <span class="logo"></span></li>
+                        <li>Video und Schnitt <span class="logo"></span></li>
+                        <li>Support-Prozesse <span class="logo"></span></li>
+                        <li>Automatisierung <span class="logo"></span></li>
+                        <li>KI-Werkzeuge <span class="logo"></span></li>
+                        <li>Web <span class="logo"></span></li>
+                        <li>Shooting-Planung <span class="logo"></span></li>
+                    </ul>
+                    <ul>
+                        <li>Fotografie <span class="logo"></span></li>
+                        <li>Video und Schnitt <span class="logo"></span></li>
+                        <li>Support-Prozesse <span class="logo"></span></li>
+                        <li>Automatisierung <span class="logo"></span></li>
+                        <li>KI-Werkzeuge <span class="logo"></span></li>
+                        <li>Web <span class="logo"></span></li>
+                        <li>Shooting-Planung <span class="logo"></span></li>
+                    </ul>
+                </div>
+            </div>
 
-        <section id="skills">
-            <h2>Skills</h2>
-
-            <h3>Web und Technik</h3>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>PHP und WordPress</li>
-                <li>Git</li>
-            </ul>
-
-            <h3>Tools und Plattformen</h3>
-            <ul>
-                <li>Zoho Desk</li>
-                <li>Notion, Figma</li>
-                <li>Lightroom, Videoschnitt</li>
-            </ul>
-
-            <h3>Methoden</h3>
-            <ul>
-                <li>Support- und Prozessgestaltung</li>
-                <li>UX und Testing</li>
-                <li>Shooting- und Projektplanung</li>
-            </ul>
-        </section>
-
-        <section id="projekte">
-            <h2>Projekte</h2>
-            <p>Eine Auswahl aus Fotografie und Video, Automatisierung und KI sowie dem Studium.</p>
-
-            <!-- Filter und Karten erzeugt js/main.js aus data/projekte.json.
-                 Die zwei Karten unten bleiben stehen, falls das Laden scheitert. -->
-            <div id="projekt-filter" class="filter" hidden></div>
-
-            <div id="projekt-liste" class="projekt-liste">
-            <article class="card">
-                <h3><a href="hauptner-coverfoto.html">Coverfoto Herbstkatalog</a></h3>
-                <p class="projekt-meta">Hauptner Jagd · Kundenauftrag · 2022</p>
-                <p>Das Titelbild für den Herbstkatalog von Hauptner Jagd in der Schweiz und in Deutschland: zwei Jäger auf der Pirsch im Haslimoos, im Morgennebel bei Sonnenaufgang.</p>
-                <p><a href="hauptner-coverfoto.html">Projekt ansehen</a></p>
-            </article>
-
-            <article class="card">
-                <h3><a href="reka-abschiedsfilm.html">Abschiedsfilm</a></h3>
-                <p class="projekt-meta">Reka · Kundenauftrag · 2024</p>
-                <p>Ein einstündiger Dankesfilm zur Pensionierung einer langjährigen Person bei Reka, als Überraschung im Kinosaal vor über 100 Gästen gezeigt.</p>
-                <p><a href="reka-abschiedsfilm.html">Projekt ansehen</a></p>
-            </article>
+            <!-- Bildmosaik: Farbfelder stehen für Bilder, die noch folgen -->
+            <div class="mosaik">
+                <div class="feld feld--oliv m1"><span class="notiz">Bild folgt · Coverfoto Herbstkatalog</span></div>
+                <div class="feld feld--rinde m2"><span class="notiz">Bild folgt · Wildtiere</span></div>
+                <div class="feld feld--moos m3"><span class="notiz">Standbild folgt · Abschiedsfilm</span></div>
+                <figure class="feld m4">
+                    <img src="assets/img/portraet.jpg" width="900" height="1131" alt="Yannic Doutaz im Neoprenanzug, sitzend vor einer Schleusenöffnung, daneben ein Surfbrett. Nassplatten-Aufnahme.">
+                </figure>
+                <div class="feld feld--ocker m5"><span class="notiz">Bild folgt · Sonnenaufgang</span></div>
+                <div class="feld feld--tief m6"><span class="notiz">Bild folgt · Making-of</span></div>
+                <div class="feld feld--oliv m7"><span class="notiz">Screenshot folgt · Support-Cockpit</span></div>
             </div>
         </section>
 
-        <section id="kontakt">
-            <h2>Kontakt</h2>
-            <p>Fragen zu einem Projekt oder eine Anfrage? Schreib mir über das Formular oder direkt an <a href="mailto:doutaz.yannic@gmail.com">doutaz.yannic@gmail.com</a>.</p>
+        <section id="ueber-mich" class="abschnitt">
+            <div class="abschnitt-kopf">
+                <h2>Über mich</h2>
+                <a class="knopf knopf--rahmen" href="#kontakt">Kontakt aufnehmen</a>
+            </div>
+            <div class="ueber">
+                <figure class="bildrahmen">
+                    <span class="bogen bogen--oben" aria-hidden="true"></span>
+                    <span class="bogen bogen--unten" aria-hidden="true"></span>
+                    <img src="assets/img/portraet.jpg" width="900" height="1131" loading="lazy" alt="">
+                </figure>
+                <div>
+                    <p class="einstieg">Ich baue Abläufe, die funktionieren, und stehe für gute Bilder früh auf.</p>
+                    <div class="fliesstext">
+                        <p>Ich komme aus Allmendingen bei Thun und habe meine Lehre als Mediamatiker beim Bundesamt für Informatik und Telekommunikation (BIT) gemacht. Seit zweieinhalb Jahren leite ich ein Team im technischen Support. Daneben studiere ich Digital Business &amp; AI an der Berner Fachhochschule.</p>
+                        <p>Privat fotografiere und filme ich, am liebsten draussen in der Natur und bei Wildtieren, oft bei Sonnenaufgang.</p>
+                    </div>
+                    <dl class="fakten">
+                        <div><dt>Lehre</dt><dd>Mediamatiker, BIT</dd></div>
+                        <div><dt>Heute</dt><dd>Teamleiter Technischer Support</dd></div>
+                        <div><dt>Studium</dt><dd>Digital Business &amp; AI, BFH</dd></div>
+                        <div><dt>E-Mail</dt><dd><a href="mailto:doutaz.yannic@gmail.com">doutaz.yannic@gmail.com</a></dd></div>
+                    </dl>
+                    <a class="knopf" href="#projekte">Projekte ansehen <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></a>
+                </div>
+            </div>
+        </section>
 
-            <!-- Versand über Formspree folgt: action-Attribut ergänzen, sobald der Endpoint eingerichtet ist. -->
-            <form>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+        <section id="bereiche" class="abschnitt">
+            <div class="abschnitt-kopf">
+                <h2>Bereiche</h2>
+                <div class="reiter-pfeile">
+                    <button class="rundknopf" type="button" data-schritt="-1" aria-label="Vorheriger Bereich"><svg class="pfeil" aria-hidden="true"><use href="#links"/></svg></button>
+                    <button class="rundknopf" type="button" data-schritt="1" aria-label="Nächster Bereich"><svg class="pfeil" aria-hidden="true"><use href="#rechts"/></svg></button>
+                </div>
+            </div>
 
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" required>
+            <!-- Reiter steuert js/main.js. Ohne JavaScript stehen alle Bereiche untereinander. -->
+            <div class="reiter-leiste" role="tablist" aria-label="Bereiche">
+                <button class="reiter" type="button" role="tab" id="reiter-foto" aria-controls="bereich-foto" aria-selected="true">Fotografie und Video</button>
+                <button class="reiter" type="button" role="tab" id="reiter-auto" aria-controls="bereich-auto" aria-selected="false" tabindex="-1">Automatisierung und KI</button>
+                <button class="reiter" type="button" role="tab" id="reiter-studium" aria-controls="bereich-studium" aria-selected="false" tabindex="-1">Studium</button>
+            </div>
 
-                <label for="nachricht">Nachricht</label>
-                <textarea id="nachricht" name="nachricht" rows="6" minlength="10" required></textarea>
+            <div class="bereich" id="bereich-foto" role="tabpanel" aria-labelledby="reiter-foto">
+                <div>
+                    <h3>Fotografie und Video</h3>
+                    <p>Vom Konzept über das Shooting bis zum fertigen Bild oder Film. Für Kundenaufträge und für mich selbst, am liebsten draussen.</p>
+                    <ul class="liste">
+                        <li><span class="logo" aria-hidden="true"></span>Shooting- und Projektplanung</li>
+                        <li><span class="logo" aria-hidden="true"></span>Fotografie für Print und Web</li>
+                        <li><span class="logo" aria-hidden="true"></span>Video: Interviews und Schnitt</li>
+                        <li><span class="logo" aria-hidden="true"></span>Lightroom und Videoschnitt</li>
+                    </ul>
+                </div>
+                <div class="feld feld--rinde"><span class="notiz">Bild folgt · Making-of Hauptner-Shooting</span></div>
+            </div>
 
-                <button type="submit">Nachricht senden</button>
-            </form>
+            <div class="bereich" id="bereich-auto" role="tabpanel" aria-labelledby="reiter-auto">
+                <div>
+                    <h3>Automatisierung und KI</h3>
+                    <p>Abläufe im technischen Support so bauen, dass sie für Kundinnen, Kunden und Team funktionieren. Wo es hilft, mit KI-Werkzeugen.</p>
+                    <ul class="liste">
+                        <li><span class="logo" aria-hidden="true"></span>Support- und Prozessgestaltung</li>
+                        <li><span class="logo" aria-hidden="true"></span>Zoho Desk: Regeln und Custom Functions</li>
+                        <li><span class="logo" aria-hidden="true"></span>KI-Werkzeuge: Claude, MCP-Connectoren</li>
+                        <li><span class="logo" aria-hidden="true"></span>Git</li>
+                    </ul>
+                </div>
+                <div class="feld feld--oliv"><span class="notiz">Screenshot folgt · Support-Cockpit</span></div>
+            </div>
 
-            <p class="datenschutz"><small>Die Angaben werden über den Dienst Formspree übermittelt und nur zur Beantwortung deiner Anfrage verwendet.</small></p>
+            <div class="bereich" id="bereich-studium" role="tabpanel" aria-labelledby="reiter-studium">
+                <div>
+                    <h3>Studium</h3>
+                    <p>Digital Business &amp; AI an der Berner Fachhochschule. Aus dem Modul Web Engineering ist diese Seite entstanden.</p>
+                    <ul class="liste">
+                        <li><span class="logo" aria-hidden="true"></span>HTML, CSS, JavaScript</li>
+                        <li><span class="logo" aria-hidden="true"></span>PHP und WordPress</li>
+                        <li><span class="logo" aria-hidden="true"></span>UX und Testing</li>
+                        <li><span class="logo" aria-hidden="true"></span>Notion und Figma</li>
+                    </ul>
+                </div>
+                <div class="feld feld--moos"><span class="notiz">Screenshot folgt · StudyGuide</span></div>
+            </div>
+        </section>
+
+        <section id="projekte" class="abschnitt">
+            <div class="abschnitt-kopf">
+                <h2>Projekte</h2>
+                <!-- Filter und Karten erzeugt js/main.js aus data/projekte.json.
+                     Die zwei Karten unten bleiben stehen, falls das Laden scheitert. -->
+                <div id="projekt-filter" class="filter" hidden></div>
+            </div>
+
+            <div id="projekt-liste" class="projekt-liste">
+                <article class="karte">
+                    <div class="feld feld--ocker"><span class="notiz">Bild folgt</span></div>
+                    <div class="karte-kopf">
+                        <div>
+                            <h3><a href="hauptner-coverfoto.html">Coverfoto Herbstkatalog</a></h3>
+                            <p class="projekt-meta">Hauptner Jagd · Kundenauftrag · 2022</p>
+                        </div>
+                        <a class="ansehen" href="hauptner-coverfoto.html" aria-hidden="true" tabindex="-1">Ansehen <svg aria-hidden="true"><use href="#pfeil"/></svg></a>
+                    </div>
+                    <p class="karte-text">Das Titelbild für den Herbstkatalog von Hauptner Jagd in der Schweiz und in Deutschland: zwei Jäger auf der Pirsch im Haslimoos, im Morgennebel bei Sonnenaufgang.</p>
+                </article>
+                <article class="karte">
+                    <div class="feld feld--rinde"><span class="notiz">Standbild folgt</span></div>
+                    <div class="karte-kopf">
+                        <div>
+                            <h3><a href="reka-abschiedsfilm.html">Abschiedsfilm</a></h3>
+                            <p class="projekt-meta">Reka · Kundenauftrag · 2024</p>
+                        </div>
+                        <a class="ansehen" href="reka-abschiedsfilm.html" aria-hidden="true" tabindex="-1">Ansehen <svg aria-hidden="true"><use href="#pfeil"/></svg></a>
+                    </div>
+                    <p class="karte-text">Ein einstündiger Dankesfilm zur Pensionierung einer langjährigen Person bei Reka, als Überraschung im Kinosaal vor über 100 Gästen gezeigt.</p>
+                </article>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <small>&copy; 2026 Yannic Doutaz · Fotos und Videos: Yannic Doutaz</small>
+    <footer id="kontakt" class="schluss">
+        <div class="band" aria-hidden="true">
+            <div class="band-spur">
+                <ul>
+                    <li>Fotografie <span class="logo"></span></li>
+                    <li>Video und Schnitt <span class="logo"></span></li>
+                    <li>Support-Prozesse <span class="logo"></span></li>
+                    <li>Automatisierung <span class="logo"></span></li>
+                    <li>KI-Werkzeuge <span class="logo"></span></li>
+                    <li>Web <span class="logo"></span></li>
+                    <li>Shooting-Planung <span class="logo"></span></li>
+                </ul>
+                <ul>
+                    <li>Fotografie <span class="logo"></span></li>
+                    <li>Video und Schnitt <span class="logo"></span></li>
+                    <li>Support-Prozesse <span class="logo"></span></li>
+                    <li>Automatisierung <span class="logo"></span></li>
+                    <li>KI-Werkzeuge <span class="logo"></span></li>
+                    <li>Web <span class="logo"></span></li>
+                    <li>Shooting-Planung <span class="logo"></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="schluss-inhalt">
+            <div>
+                <h2>Lass uns<br>zusammenarbeiten</h2>
+                <p>Fragen zu einem Projekt oder eine Anfrage für Fotos oder Video? Schreib mir über das Formular oder direkt per E-Mail.</p>
+                <a class="knopf knopf--gold" href="mailto:doutaz.yannic@gmail.com">doutaz.yannic@gmail.com <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></a>
+            </div>
+
+            <!-- Versand über Formspree folgt: action-Attribut ergänzen, sobald der Endpoint eingerichtet ist. -->
+            <form class="formular">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required>
+                </div>
+                <div>
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+                <div>
+                    <label for="nachricht">Nachricht</label>
+                    <textarea id="nachricht" name="nachricht" rows="5" minlength="10" required></textarea>
+                </div>
+                <button class="knopf" type="submit">Nachricht senden <span class="knopf-kreis"><svg aria-hidden="true"><use href="#pfeil"/></svg></span></button>
+                <p class="datenschutz">Die Angaben werden über den Dienst Formspree übermittelt und nur zur Beantwortung deiner Anfrage verwendet.</p>
+            </form>
+        </div>
+
+        <p class="riesig" aria-hidden="true">Doutaz</p>
+
+        <div class="fuss">
+            <small>&copy; 2026 Yannic Doutaz · Fotos und Videos: Yannic Doutaz</small>
+            <a href="https://github.com/yannicdoutaz/portfolio-page#ki-nutzung">Quellen und KI-Nutzung</a>
+        </div>
     </footer>
 </body>
 </html>
