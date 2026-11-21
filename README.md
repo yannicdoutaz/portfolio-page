@@ -22,6 +22,21 @@ docs/design/               Design-Prozess in Figma und Design-Entscheide
 Die Bild-Originale liegen in `Webseite - Bilder/` und sind per `.gitignore` von der
 Versionierung ausgeschlossen. Ins Repo kommen nur Exporte für das Web.
 
+## Fotos aufbereiten
+
+`tools/bilder.py` macht aus den Lightroom-Exporten in `Webseite - Bilder/<kategorie>/`
+Web-Fotos in `assets/img/fotos/`: vier Breiten (640 bis 2560 px) als WebP für `srcset`,
+Wasserzeichen unten rechts, Urheber und Copyright in den Metadaten, ohne GPS-Daten.
+Die Liste für die Galerie steht danach in `data/fotos.json`.
+
+```
+python3 tools/bilder.py            neue und geänderte Fotos verarbeiten
+python3 tools/bilder.py --pruefen  prüfen, ob alle Web-Fotos die Urheber-Metadaten tragen
+```
+
+Ein Export ohne Urheber und Copyright in den Metadaten wird abgelehnt. Braucht Pillow
+und exiftool.
+
 ## Lokal starten
 
 In VS Code mit «Live Server» oder im Projektordner `python3 -m http.server 8080`
