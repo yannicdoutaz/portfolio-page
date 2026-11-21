@@ -35,7 +35,9 @@ python3 tools/bilder.py --pruefen  prüfen, ob alle Web-Fotos die Urheber-Metada
 ```
 
 Ein Export ohne Urheber und Copyright in den Metadaten wird abgelehnt. Braucht Pillow
-und exiftool.
+und exiftool. Den ganzen Ablauf für Fotos, fremde Bilder und PDFs als Diagramm zeigt
+[docs/prozess/bilder-und-dateien.md](docs/prozess/bilder-und-dateien.md), Urheber und
+offene Freigaben stehen in [docs/bildrechte.md](docs/bildrechte.md).
 
 ## Lokal starten
 
